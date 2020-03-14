@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+require('dotenv').config();
 
 const app = express();
 
@@ -16,9 +17,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// passport setup
+require('./setup/passport.js')(app);
+require('./setup/sqlite.js')('init')();
+
 app.use('/', require('./routes/index.js'));
-app.use('/users', require('./routes/users.js'));
-app.use('/login', require('./routes/login.js'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -9,12 +9,17 @@
 	<body>
 		<% if(status == 'login'){%>
 		<h1>Login</h1>
-		<form action="/login/auth" method="post">
+		<form action="/user/login" method="post">
+			<% if(locals.error){ %>
+				<div class=warming>
+					<h3><%= error %></h3>
+				</div>
+			<% } %>
 			<label for="username">username: </label>
 			<input type="text" name="username" id="username">
 			<br>
 			<label for="password">password: </label>
-			<input type="text" name="password" id="password">
+			<input type="password" name="password" id="password">
 			<button type="submit">Login</button>
 		</form>
 		<% }else if(status == 'success'){ %>

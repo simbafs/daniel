@@ -4,18 +4,25 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "nodemon start ",
-	"kill": "kill $(netstat -antpl | grep 3000 | egrep -o '[0-9]*\/node' | egrep -o '[0-9]*')"
+    "dev": "nodemon start ",
+    "kill": "kill $(netstat -antpl | grep 3000 | egrep -o '[0-9]*/node' | egrep -o '[0-9]*')"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-session": "^1.17.0",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "passport": "^0.4.1",
+    "passport-github2": "^0.1.11",
     "passport-local": "^1.0.0",
     "sqlite-async": "^1.0.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
