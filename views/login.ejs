@@ -7,6 +7,7 @@
 		<title>Login</title>
 	</head>
 	<body>
+		<% if(status == 'login'){%>
 		<h1>Login</h1>
 		<form action="/login/auth" method="post">
 			<label for="username">username: </label>
@@ -14,6 +15,12 @@
 			<br>
 			<label for="password">password: </label>
 			<input type="text" name="password" id="password">
+			<button type="submit">Login</button>
 		</form>
+		<% }else if(status == 'success'){ %>
+			<h2>Loginned !</h2>
+		<% }else if(status == 'fail'){ %>
+			<h2>Fail !</h2>
+		<% } %>
 	</body>
 </html>
