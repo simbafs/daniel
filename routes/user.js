@@ -8,15 +8,24 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/login', (req, res, next) => {
-	res.render('user.ejs', {
-		status: 'login',
-		error: 'test'
+	res.render('user', {
+		status: 'login'
 	});
 });
 
 // login
 router.post('/login', (req, res, next) => {
-	
+	if(!req.body.username || !req.body.password) return res.send({
+		error: 'Something Error, please reload the page.'
+	});
+
+	login(req.body.username, req.body.password)
+		.then((user) => {
+			if(!user) return res.send({
+				error: 'Username or password error.'
+			});
+		})
+		.catch(console.error);
 });
 
 module.exports = router;

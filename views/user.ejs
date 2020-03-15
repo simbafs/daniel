@@ -10,27 +10,26 @@
 		<% if(status == 'login'){%>
 		<h1>Login</h1>
 		<form action="/user/login" method="post">
-			<% if(locals.error){ %>
-				<div class=warming>
-					<div class="warming-msg">
-						<h3><%= error %></h3>
-					</div>
-					<a class="icon" href="#" data-close=".warming"><img src="/images/svg/close.svg" alt=""></a>
+			<div class=warming>
+				<div class="warming-msg">
+					<h3></h3>
 				</div>
-			<% } %>
+				<a class="icon" href="#" data-close=".warming"><img src="/images/svg/close.svg" alt=""></a>
+			</div>
 			<label for="username">username: </label>
-			<input type="text" name="username" id="username">
+			<input type="text" name="username" id="username" required>
 			<br>
 			<label for="password">password: </label>
-			<input type="password" name="password" id="password">
-			<button type="submit">Login</button>
+			<input type="password" name="password" id="password" required>
+			<button id="login" type="submit">Login</button>
 		</form>
 		<% }else if(status == 'success'){ %>
 			<h2>Loginned !</h2>
 		<% }else if(status == 'fail'){ %>
 			<h2>Fail !</h2>
 		<% } %>
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="/javascripts/jquery.js"></script>
 		<script src="/javascripts/script.js"></script>
+		<script src="/javascripts/login.js"></script>
 	</body>
 </html>
