@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
 router.get('/login', (req, res, next) => {
 	res.render('user.ejs', {
 		status: 'login',
-		error: 'username empty'
+		error: 'test'
 	});
 });
 
