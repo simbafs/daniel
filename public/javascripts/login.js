@@ -1,5 +1,8 @@
 console.log('login.js loaded');
 $('.warming').css('display', 'flex').hide();
+$('#signup').click(()=> {
+	location = '/user/signup';
+});
 /*
 $('form').submit((e) => {
 	let username = $('#username');

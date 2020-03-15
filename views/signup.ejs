@@ -7,30 +7,28 @@
 	<body>
 		<h1>Signup</h1>
 		<form action="/user/signup" method="post">
-			<!--
 			<div class=warming>
 				<div class="warming-msg">
 					<h3></h3>
 				</div>
 				<a class="icon" href="#" data-close=".warming"><img src="/images/svg/close.svg" alt=""></a>
 			</div>
-			-->
-			<label for="username">Username(email):</label>
-			<input type="email" name="username" required>
-			<label for="realname">Realname:</label>
-			<input type="text" name="realname" required>
-			<label for="password">Password(at least 6 char):</label>
-			<input type="password" minlength="6" name="password" required>
-			<label for="password">Confirm password:</label>
-			<input type="password" minlength="6" name="c-password" required>
+			<label for="username">username(email):</label>
+			<input id="username" type="email" name="username" required>
+			<label for="realname">realname:</label>
+			<input id="realname" type="text" name="realname" required>
+			<label for="password">password(at least 6 char):</label>
+			<input id="password" type="password" minlength="6" name="password" required>
+			<label for="password">confirm password:</label>
+			<input id="c-password" type="password" minlength="6" name="c-password" required>
 
 			<div class="form-buttom">
-				<button id="signup" type="button">Signup</button>
-				<button id="login" type="submit">Login</button>
+				<button id="signup" type="submit">Signup</button>
+				<button id="login" type="button">Login</button>
 			</div>
 		</form>
 		<script src="/javascripts/jquery.js"></script>
 		<script src="/javascripts/script.js"></script>
-		<script src="/javascripts/login.js"></script>
+		<script src="/javascripts/signup.js"></script>
 	</body>
 </html>

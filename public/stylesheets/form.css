@@ -7,6 +7,10 @@ form{
 	padding: 0% 20%;
 }
 
+form label {
+	text-transform:capitalize;
+}
+
 form input {
 	padding-bottom: 10px;
 	margin: 10px 0px 10px 10px;
@@ -16,8 +20,6 @@ form input {
 	transition: all 0.3s ease;
 	color: #222
 }
-
-form input:
 
 form input:focus {
 	transform: scale(1.2);
