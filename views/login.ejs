@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="/stylesheets/style.css">
-		<link rel="stylesheet" href="/stylesheets/login.css">
+		<% include common/head.ejs%>
 		<title>Login</title>
 	</head>
 	<body>
-		<% if(status == 'login'){%>
 		<h1>Login</h1>
 		<form action="/user/login" method="post">
 			<div class=warming>
@@ -21,13 +18,12 @@
 			<br>
 			<label for="password">password: </label>
 			<input type="password" name="password" id="password" required>
-			<button id="login" type="submit">Login</button>
+			<div class="form-buttom">
+				<button id="login" type="submit">Login</button>
+				<button id="signup" type="button">Signup</button>
+			
+			</div>
 		</form>
-		<% }else if(status == 'success'){ %>
-			<h2>Loginned !</h2>
-		<% }else if(status == 'fail'){ %>
-			<h2>Fail !</h2>
-		<% } %>
 		<script src="/javascripts/jquery.js"></script>
 		<script src="/javascripts/script.js"></script>
 		<script src="/javascripts/login.js"></script>

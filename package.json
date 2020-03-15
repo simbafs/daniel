@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
@@ -20,7 +21,8 @@
     "passport": "^0.4.1",
     "passport-github2": "^0.1.11",
     "passport-local": "^1.0.0",
-    "sqlite-async": "^1.0.12"
+    "sqlite-async": "^1.0.12",
+    "uuid": "^7.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

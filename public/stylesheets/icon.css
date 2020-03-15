@@ -1,0 +1,9 @@
+.icon {
+	height: 10px;
+	margin: auto 10px auto;
+	display: flex;
+}
+
+.icon > img {
+	height: 10px;
+}

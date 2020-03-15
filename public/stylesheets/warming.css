@@ -1,0 +1,17 @@
+.warming {
+	border: solid 0.1px #d22;
+	display: none; /* change to flex after js load*/
+	justify-content: center;
+	align-content: center;
+	border-radius: 7px;
+	margin: 30px;
+	padding: 0px;
+	background: #f333;
+	box-shadow: 10px 10px 10px 2px #f002;
+}
+
+.warming > .warming-msg {
+	width: 90%;
+	display: flex;
+	justify-content: center;
+}

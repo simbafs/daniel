@@ -1,5 +1,6 @@
 console.log('login.js loaded');
 $('.warming').css('display', 'flex').hide();
+/*
 $('form').submit((e) => {
 	let username = $('#username');
 	let password = $('#password');
@@ -19,4 +20,5 @@ $('form').submit((e) => {
 		})
 		.catch(console.error);
 	e.preventDefault();
-})
+});
+*/

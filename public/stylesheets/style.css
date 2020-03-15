@@ -1,36 +1,23 @@
+@import url(/stylesheets/form.css);
+@import url(/stylesheets/warming.css);
+@import url(/stylesheets/icon.css);
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+:root{
+	--color: #33d
+}
+
+* {
+	font-family: 'Roboto Mono', monospace;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	padding: 50px;
 }
 
-.icon {
-	height: 10px;
-	margin: auto 10px auto;
-	display: flex;
+h1 {
+	text-align: center;
 }
 
-.icon > img {
-	height: 10px;
-}
 
-.warming {
-	border: solid 0.1px #d22;
-	display: none; /* change to flex after js load*/
-	justify-content: center;
-	align-content: center;
-	border-radius: 7px;
-	margin: 30px;
-	padding: 0px;
-	background: #f333;
-	box-shadow: 10px 10px 10px 2px #f002;
-}
 
-.warming > .warming-msg {
-	width: 90%;
-	display: flex;
-	justify-content: center;
-}
-
-a {
-  color: #00B7FF;
-}
