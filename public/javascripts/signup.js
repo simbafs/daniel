@@ -4,6 +4,7 @@ $('#login').click(() => {
 
 $('form').submit((e) => {
 	if($('#password').val() !== $('#c-password').val()){
+		$('.warming').warmingShow('password not match');
 		e.preventDefault();
 	}
 });

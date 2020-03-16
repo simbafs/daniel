@@ -48,7 +48,10 @@ function login(username, password){
 }
 
 function register(username, password, realname){
-	bcrypt.hash(password, parseInt(process.env.BCRYPT_SALT_ROUNDS))
+	User.run(`SELECT * FROM User WHERE username = '${username}'`)
+		.then((data) => {
+			if(!data) return bcrypt.hash(password, parseInt(process.env.BCRYPT_SALT_ROUNDS));
+		})
 		.then((hash) => {
 			return User.run(`INSERT INTO User VALUES ('${username}', '${hash}', '${realname}', '${uuid()}')`)
 		})

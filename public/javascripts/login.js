@@ -14,11 +14,6 @@ $('form').submit((e) => {
 		.then((data) => {
 			console.log(data);
 			if(data.error){
-				$('.warming-msg')
-					.children()
-						.eq(0).text(data.error).end()
-					.end()
-					.parent().slideDown()
 			}
 		})
 		.catch(console.error);
