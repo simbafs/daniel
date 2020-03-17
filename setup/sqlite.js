@@ -47,13 +47,29 @@ function login(username, password){
 		.catch(console.error)
 }
 
-function register(username, password, realname){
-	User.run(`SELECT * FROM User WHERE username = '${username}'`)
+/*
+setTimeout(async () => {
+	a = await signup('simba', 'ss', 'simba-fs')
+	console.log('a', a);
+}, 2000);
+*/
+
+function signup(username, password, realname){
+	return User.all(`select count(username) from User  where username = '${username}'`)
 		.then((data) => {
-			if(!data) return bcrypt.hash(password, parseInt(process.env.BCRYPT_SALT_ROUNDS));
+			if(data[0]['count(username)'] === 0) return bcrypt.hash(password, parseInt(process.env.BCRYPT_SALT_ROUNDS));
 		})
-		.then((hash) => {
-			return User.run(`INSERT INTO User VALUES ('${username}', '${hash}', '${realname}', '${uuid()}')`)
+		.then(async (hash) => {
+			if(!hash) return {
+				status: 400,
+				error: 'username exist'
+			};
+			await User.all(`INSERT INTO User VALUES ('${username}', '${hash}', '${realname}', '${uuid()}')`)
+			return {
+				username: username,
+				realname: realname,
+				id: hash
+			};
 		})
 		.catch(console.error);
 }
@@ -62,7 +78,7 @@ module.exports = (mode) => {
 	const handler = {
 		init: init,
 		login: login,
-		register: register,
+		signup: signup,
 		User: User
 	}
 	return handler[mode] || (() => new Error('Error mode'));
