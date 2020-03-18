@@ -10,11 +10,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/login', (req, res, next) => {
-	res.render('login');
+	if(res.locals.isAuthenticated) return res.redirect('/');
+	else return res.render('login');
 })
 
 router.get('/signup', (req, res, next) => {
-	res.render('signup');
+	if(res.local.isAuthenticated) return res.redirect('/');
+	else return res.render('signup');
 });
 
 router.use('/signup', require('./user/signup.js'));

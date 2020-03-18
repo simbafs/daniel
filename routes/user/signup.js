@@ -8,27 +8,24 @@ setTimeout(() => {
 }, 1500);
 
 router.post('/', async (req, res, next) => {
-	console.log(1);
-	console.log(
-		!req.body.username,
-		!req.body.password,
-		!req.body.realname,
-		req.body.password,
-		req.body['c-password']
-	)
+	let error = [];
+	if(!req.body.username) error.push('username empty');
+	if(!req.body.password) error.push('password empty');
+	if(!req.body['c-password']) error.push('confirm password empty');
+	if(!req.body.realname) error.push('realname empty');
+	if(req.body.password !== req.body['c-password']) error.push('password confirm fail');
+	if(error.length > 0) return res.send(error);
 
-	if(!req.body.username) return res.redirect('/user/signup#username');
-	if(!req.body.password) return res.redirect('/user/signup#password');
-	if(!req.body.realname) return res.redirect('/user/signup#realname');
-	if(req.body.password !== req.body['c-password']) return res.redirect('/user/signup#passworderror');
-
-	console.log(2);
 	user = await signup(
 		req.body.username.toString(),
 		req.body.password.toString(),
 		req.body.realname.toString()
 	);
 	console.log(user);
+	if(user.error) return res.send(user);
+	else return res.send({
+		status: 200
+	});
 });
 
 module.exports = router;

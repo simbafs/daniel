@@ -1,11 +1,14 @@
+/* Import css */
 @import url(/stylesheets/form.css);
 @import url(/stylesheets/warming.css);
 @import url(/stylesheets/icon.css);
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+/* Import fonts */
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap);
+@import url(/fonts/Auraka.ttf);
 
-:root{
-	--color: #33d
-}
+:root {
+	--color: '#33da';
+} 
 
 * {
 	font-family: 'Roboto Mono', monospace;
@@ -15,9 +18,19 @@ body {
 	padding: 50px;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
 	text-align: center;
 }
 
+.title {
+	letter-spacing: 0.5em;
+}
 
+.subtitle {
+	letter-spacing: 0.15em;
+	font-weight: 900;
+}
 
+.kbd {
+	font-family: 'Auraka點陣宋', 'Roboto Mono', monospace;
+}
