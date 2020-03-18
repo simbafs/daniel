@@ -1,10 +1,10 @@
 /* Import css */
-@import url(/stylesheets/form.css);
-@import url(/stylesheets/warming.css);
-@import url(/stylesheets/icon.css);
+@import url('/stylesheets/form.css');
+@import url('/stylesheets/warming.css');
+@import url('/stylesheets/icon.css');
 /* Import fonts */
-@import url(https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap);
-@import url(/fonts/Auraka.ttf);
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+@import url('/fonts/Auraka.ttf');
 
 :root {
 	--color: '#33da';
