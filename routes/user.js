@@ -15,7 +15,7 @@ router.get('/login', (req, res, next) => {
 })
 
 router.get('/signup', (req, res, next) => {
-	if(res.local.isAuthenticated) return res.redirect('/');
+	if(res.locals.isAuthenticated) return res.redirect('/');
 	else return res.render('signup');
 });
 

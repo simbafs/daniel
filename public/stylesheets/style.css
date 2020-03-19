@@ -2,6 +2,7 @@
 @import url(/stylesheets/form.css);
 @import url(/stylesheets/warming.css);
 @import url(/stylesheets/icon.css);
+@import url(/stylesheets/nav.css);
 /* Import fonts */
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
 @import url('/fonts/Auraka.ttf');
@@ -15,7 +16,13 @@
 }
 
 body {
+	margin: 0px;
+	padding: 0px;
+}
+
+main {
 	padding: 50px;
+	padding-top: 0px;
 }
 
 h1, h2, h3, h4, h5, h6 {

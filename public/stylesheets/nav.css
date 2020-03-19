@@ -1,0 +1,55 @@
+/* root setup */
+nav {
+	/* variable */
+	--bg: #329;
+	--bg-hover: #43c;
+	--fg: #87f;
+
+	margin: 0px;
+	padding: 0px;
+	height: 60px;
+	display: flex;
+	align-content: center;
+	background: var(--bg);
+	color: var(--fg);
+}
+
+/* brand */
+nav > a {
+	display: flex;
+}
+
+nav > a img {
+	height: 40px;
+	margin-left: 10px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+/* links */
+nav ul {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: end;
+}
+
+nav li {
+	list-style: none;
+	margin-right: 20px;
+	transition: all 0.4s ease;
+	height: 100%;
+}
+
+nav li:hover {
+	background: var(--bg-hover);
+}
+
+nav li a{
+	text-decoration: none;
+}
+
+nav li a img {
+	height: 30px;
+	filter: invert(80%);
+}
