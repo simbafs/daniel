@@ -2,9 +2,23 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/stylesheets/style.css">
 		<title>Let's Remin Daniel - Submit</title>
 	</head>
 	<body>
-		
+		<% include common/nav.ejs %>
+		<main>
+			<h1>Submit</h1>
+			<form action="/submit" method="post">
+				<textarea wrap="off" id="now" cols="30" rows="10"><%= now %></textarea>
+				<textarea wrap="off" id="addition" name="addition" cols="30" rows="3" required></textarea>
+				<div class="form-bottom">
+					<button type="submit">Submit</button>
+				</div>		
+			</form>
+		</main>
+		<script src="/javascripts/jquery.js"></script>
+		<script src="/javascripts/plugins/autoresize.jquery.js"></script>
+		<script src="/javascripts/submit.js"></script>
 	</body>
 </html>
