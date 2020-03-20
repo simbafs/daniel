@@ -1,11 +1,16 @@
 const router = require('express').Router();
-const sqlite = require('../../setup/sqlite.js');
+const sqlite = require('../setup/sqlite.js');
 const signup = sqlite('signup');
 let User;
 setTimeout(() => {
 	User = sqlite('User');
 	console.log('router/user/signup.js: DB load');
 }, 1500);
+
+router.get('/', (req, res, next) => {
+	if(res.locals.isAuthenticated) return res.redirect('/');
+	else return res.render('signup');
+});
 
 router.post('/', async (req, res, next) => {
 	let error = [];

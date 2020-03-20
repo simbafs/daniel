@@ -2,28 +2,31 @@
 <html lang="en">
 	<head>
 		<% include common/head.ejs %>
-		<title>Login</title>
+		<title>Let's Remin Daniel - Login</title>
 	</head>
 	<body>
-		<h1>Login</h1>
-		<form action="/user/login" method="post">
-			<div class=warming>
-				<div class="warming-msg">
-					<h3></h3>
+		<% include common/nav.ejs %>
+		<main>
+			<h1>Login</h1>
+			<form action="/user/login" method="post">
+				<div class=warming>
+					<div class="warming-msg">
+						<h3></h3>
+					</div>
+					<a class="icon" href="#" data-close=".warming"><img src="/images/svg/close.svg" alt=""></a>
 				</div>
-				<a class="icon" href="#" data-close=".warming"><img src="/images/svg/close.svg" alt=""></a>
-			</div>
-			<label for="username">username: </label>
-			<input type="text" name="username" id="username" required>
-			<br>
-			<label for="password">password: </label>
-			<input type="password" name="password" id="password" required>
-			<div class="form-buttom">
-				<button id="login" type="submit">Login</button>
-				<button id="signup" type="button">Signup</button>
-			
-			</div>
-		</form>
+				<label for="username">username: </label>
+				<input type="text" name="username" id="username" required>
+				<br>
+				<label for="password">password: </label>
+				<input type="password" name="password" id="password" required>
+				<div class="form-buttom">
+					<button id="login" type="submit">Login</button>
+					<button id="signup" type="button">Signup</button>
+				
+				</div>
+			</form>
+		</main>
 		<script src="/javascripts/jquery.js"></script>
 		<script src="/javascripts/script.js"></script>
 		<script src="/javascripts/login.js"></script>

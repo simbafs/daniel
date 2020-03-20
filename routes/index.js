@@ -11,6 +11,8 @@ router.get('/secret', auth, (req, res, next) => {
 	res.send('<h1>Hello World</h1>');
 });
 
-router.use('/user', require('./user.js'));
+router.use('/login', require('./login.js'));
+router.use('/signup', require('./signup.js'));
+router.use('/submit', require('./submit.js'));
 
 module.exports = router;
