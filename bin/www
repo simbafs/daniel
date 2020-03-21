@@ -77,6 +77,8 @@ function onError(error) {
   }
 }
 
+process.on('exit', () => console.log('exit'));
+
 /**
  * Event listener for HTTP server "listening" event.
  */

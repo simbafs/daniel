@@ -3,8 +3,11 @@ form{
 	flex-direction: column;
 	justify-content: center;
 	align-content: center;
-	height: 60vh;
 	padding: 0% 20%;
+}
+
+form .title td{
+	text-align: center;
 }
 
 form label {

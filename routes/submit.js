@@ -1,8 +1,13 @@
 const router = require('express').Router();
+const sqlite = require('../setup/sqlite.js');
+const load = sqlite('load');
+const get = sqlite('get');
 
 router.get('/', (req, res, next) => {
-	res.render('submit', {
-		now: 'kjsdadslkasd'
+	get().then((data) => {
+		res.render('submit', {
+			data: data
+		});
 	});
 });
 

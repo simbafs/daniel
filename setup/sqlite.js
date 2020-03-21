@@ -3,33 +3,34 @@ const uuid = require('uuid').v4;
 const sqlite = require('sqlite-async');
 require('dotenv').config();
 
-let User;
+let DB;
 
 function init(){
 	sqlite.open('./db/user.db')
 		.then((db) => {
 			console.log('Open DB');
-			User = db
-			return db.run(`CREATE TABLE IF NOT EXISTS User (
-				username STRING,
-				password STRING,
-				realname STRING,
+			DB = db;
+			db.run(`CREATE TABLE IF NOT EXISTS User (
+				username TEXT,
+				password TEXT,
+				realname TEXT,
 				id STRING 
 			)`)
+			db.run(`CREATE TABLE IF NOT EXISTS Record (
+				id INTEGER,
+				content TEXT,
+				author TEXT,
+				date DATE
+			)`);
 		})
 		.catch(console.error);
 }
 
-/**
- * login
- * @params {string} username - username
- * @params {string} password - password
- */
 function login(username, password){
-	return User.all(`SELECT * FROM User WHERE username = '${username}'`)
+	return DB.all(`SELECT * FROM User WHERE username = '${username}'`)
 		.then(data => {
 			if(data.length == 0) return { status: 404, error: 'User not found' };
-			if(data.length != 1) return { status: 500, error: 'DB is broken'};
+			if(data.length != 1) return { status: 500, error: 'User is broken'};
 
 			return bcrypt.compare(password, data[0].password)
 				.then(status => {
@@ -47,15 +48,8 @@ function login(username, password){
 		.catch(console.error)
 }
 
-/*
-setTimeout(async () => {
-	a = await signup('simba', 'ss', 'simba-fs')
-	console.log('a', a);
-}, 2000);
-*/
-
 function signup(username, password, realname){
-	return User.all(`select count(username) from User  where username = '${username}'`)
+	return DB.all(`select count(username) from User where username = '${username}'`)
 		.then((data) => {
 			if(data[0]['count(username)'] === 0) return bcrypt.hash(password, parseInt(process.env.BCRYPT_SALT_ROUNDS));
 		})
@@ -64,7 +58,7 @@ function signup(username, password, realname){
 				status: 400,
 				error: 'username exist'
 			};
-			await User.all(`INSERT INTO User VALUES ('${username}', '${hash}', '${realname}', '${uuid()}')`)
+			await DB.all(`INSERT INTO User VALUES ('${username}', '${hash}', '${realname}', '${uuid()}')`)
 			return {
 				username: username,
 				realname: realname,
@@ -74,12 +68,52 @@ function signup(username, password, realname){
 		.catch(console.error);
 }
 
+async function load(data){
+	const stat = await DB.prepare(`INSERT INTO Record VALUES (?, ?, ?, ?)`);
+	if(!Array.isArray(data)) data = [data];
+	for(let i of data){
+		if(typeof i === 'string'){
+			stat.run(
+				uuid(),
+				i,
+				'unknown',
+				(new Date()).toISOString()
+			);
+		}else{
+			stat.run(
+				uuid(),
+				i.content,
+				i.author,
+				(new Date()).toISOString()
+			);
+		}
+	}
+	stat.finalize();
+}
+
+let get = () => DB.all(`SELECT * FROM Record`);
+
+setTimeout(async () => {
+	console.log(DB.all);
+/*
+	load(require('../db/record.js'));
+	load({
+		content: 'asdfasdfdasf',
+		author: 'simba'
+	});
+	console.log('record.js loaded');
+	get().then(console.log);
+*/
+}, 2000);
+
 module.exports = (mode) => {
 	const handler = {
 		init: init,
 		login: login,
 		signup: signup,
-		User: User
+		DB: DB,
+		load: load,
+		get: get
 	}
 	return handler[mode] || (() => new Error('Error mode'));
 }
