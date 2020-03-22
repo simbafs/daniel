@@ -6,7 +6,7 @@ require('dotenv').config();
 let DB;
 
 function init(){
-	sqlite.open('./db/user.db')
+	sqlite.open(process.env.DB_PATH)
 		.then((db) => {
 			console.log('Open DB');
 			DB = db;

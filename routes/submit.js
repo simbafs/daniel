@@ -1,24 +1,16 @@
 const router = require('express').Router();
 const sqlite = require('../setup/sqlite.js');
 const load = sqlite('load');
+const auth = require('../setup/auth.js');
 
-router.get('/', (req, res, next) => {
+router.get('/', auth, (req, res, next) => {
 	res.render('submit');
-	/*
-	get().then((data) => {
-		res.render('submit', {
-			data: data
-		});
-	});
-	*/
 });
 
 router.post('/', (req, res, next) => {
-	/*
 	if(!req.isAuthenticated()) return res.send({
 		error: 'You have to login'
 	});
-	*/
 	let author = req.user.username;
 	let data = req.body.content
 		.split('\n')
