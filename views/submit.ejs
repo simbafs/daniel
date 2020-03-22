@@ -8,7 +8,9 @@
 	<body>
 		<% include common/nav.ejs %>
 		<main>
+		<h1>Submit</h1>
 			<form action="/submit" method="post">
+				<% include common/warming.ejs %>
 				<label for="content">content</label>
 				<textarea id="content" name="content" cols="30" rows="10"></textarea>
 				<div class="form-bottom">
@@ -16,5 +18,9 @@
 				</div>
 			</form>
 		</main>
+		<script src="/javascripts/jquery.js"></script>
+		<script src="/javascripts/component/warming.js"></script>
+		<script src="/javascripts/script.js"></script>
+		<script src="/javascripts/submit.js"></script>
 	</body>
 </html>

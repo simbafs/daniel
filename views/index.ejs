@@ -6,9 +6,10 @@
 	</head>
 	<body>
 		<% include common/nav.ejs %>
-		<main>
+		<main class=center>
 			<h1 class="title">Let's Remind Daniel</h1>
 			<h2 class="subtitle kbd">Welcome to Let's Remind Daniel</h2>
+			<textarea id="content" cols="30" rows="<%= lines+10 %>"><%= data %></textarea>
 		</main>
 	</body>
 </html>

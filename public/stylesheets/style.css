@@ -22,9 +22,8 @@ body {
 
 main {
 	padding: 50px;
-	/*
-	padding-top: 0px;
-	*/
+	display: flex;
+	flex-direction: column;
 }
 
 h1, h2, h3, h4, h5, h6 {

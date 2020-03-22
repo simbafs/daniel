@@ -23,10 +23,10 @@ module.exports = (app, passport) => {
 	});
 
 	passport.deserializeUser((id, done) => {
-		DB.run(`SELECT * FROM User WHERE id = '${id}'`)
+		DB.all(`SELECT * FROM User WHERE id = '${id}'`)
 			.then((user) => {
-				if(user.error) done(user, null);
-				else done(null, user);
+				if(user.error) done(user[0], null);
+				else done(null, user[0]);
 			})
 			.catch(console.error);
 	});
