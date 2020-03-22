@@ -93,9 +93,8 @@ async function load(data){
 
 let get = () => DB.all(`SELECT * FROM Record`);
 
-setTimeout(async () => {
-	console.log(DB.all);
 /*
+setTimeout(async () => {
 	load(require('../db/record.js'));
 	load({
 		content: 'asdfasdfdasf',
@@ -103,8 +102,8 @@ setTimeout(async () => {
 	});
 	console.log('record.js loaded');
 	get().then(console.log);
-*/
 }, 2000);
+*/
 
 module.exports = (mode) => {
 	const handler = {

@@ -32,7 +32,11 @@ app.use((req, res, next) => {
 	res.locals.user = req.user;
 	// check if already authenticated
 	res.locals.isAuthenticated = req.isAuthenticated();
-	// add flash keys
+	if(res.locals.isAuthenticated){
+		res.cookie('admin', 'true');
+	}else{
+		res.clearCookie('admin');
+	}
 	next();
 })
 

@@ -2,9 +2,9 @@ module.exports = (app, passport) => {
 	const session = require('express-session');
 	const LocalStrategy = require('passport-local').Strategy;
 	const login = require('./sqlite.js')('login');
-	let user;
+	let DB;
 	setTimeout(() => {
-		User = require('./sqlite.js')('User');
+		DB = require('./sqlite.js')('DB');
 		console.log('setup/sqlite.js: DB load')
 	}, 1000);
 
@@ -23,7 +23,7 @@ module.exports = (app, passport) => {
 	});
 
 	passport.deserializeUser((id, done) => {
-		User.run(`SELECT * FROM User WHERE id = '${id}'`)
+		DB.run(`SELECT * FROM User WHERE id = '${id}'`)
 			.then((user) => {
 				if(user.error) done(user, null);
 				else done(null, user);

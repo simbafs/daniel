@@ -1,5 +1,5 @@
 $('#login').click(() => {
-	location = '/user/login';
+	location = '/login';
 });
 
 $('form').submit((e) => {
@@ -8,13 +8,13 @@ $('form').submit((e) => {
 		$('.warming').warmingShow('password not match');
 		return;
 	}
-	$.post('/user/signup', {
+	$.post('/signup', {
 		username: $('#username').val(),
 		password: $('#password').val(),
 		'c-password': $('#c-password').val(),
 		realname: $('#realname').val()
 	}).then(data => {
 		if(data.status !== 200) return $('.warming').warmingShow(data.error);
-		else window.location.assign('/user/login');
+		else window.location.assign('/login');
 	}).catch(console.error);
 });

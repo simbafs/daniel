@@ -4,15 +4,22 @@ const load = sqlite('load');
 const get = sqlite('get');
 
 router.get('/', (req, res, next) => {
+	res.render('submit');
+	/*
 	get().then((data) => {
 		res.render('submit', {
 			data: data
 		});
 	});
+	*/
 });
 
 router.post('/', (req, res, next) => {
-	res.send(req.body);
+	if(!req.isAuthenticated()) res.
+	res.send({
+		...req.body,
+		author: Object.keys(req)
+	});
 });
 
 module.exports = router;

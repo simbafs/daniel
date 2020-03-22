@@ -1,7 +1,7 @@
 console.log('login.js loaded');
 $('.warming').css('display', 'flex').hide();
 $('#signup').click(()=> {
-	location = '/user/signup';
+	location = '/signup';
 });
 /*
 $('form').submit((e) => {

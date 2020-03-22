@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+	<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="/stylesheets/style.css">
@@ -8,51 +8,13 @@
 	<body>
 		<% include common/nav.ejs %>
 		<main>
-			<h1>Submit</h1>
 			<form action="/submit" method="post">
-				<table>
-					<tr class="title">
-						<td class="content">content</td>
-						<td class="author">author</td>
-						<td class="button">remove</td>
-					</tr>
-					<% for(let i in data){ %>
-						<tr id="<%= i %>">
-							<td class="content"><input disabled type="text" value="<%= data[i].content %>"></td>
-							<td class="author"><input disabled type="text" value="<%= data[i].author %>"></td>
-							<td class="button"><button type="button" class="remove" id="remove-<%= i %>">X</button></td>
-						</tr>
-					<% } %>
-					<tr class="addition">
-						<td class="content"><input name="addition-1-content" type="text"></td>
-						<td class="author"><input disabled type="text"></td>
-						<td class="button"><button type="button" class="remove removeAddition">X</button></td>
-					</tr>
-				<table>
+				<label for="content">content</label>
+				<textarea id="content" name="content" cols="30" rows="10"></textarea>
 				<div class="form-bottom">
 					<button type="submit">Submit</button>
-				</div>		
+				</div>
 			</form>
 		</main>
-
-		<style>
-			.content, .author{
-				width: 46%;
-			}
-			.button {
-				width: 8%
-			}
-			.button button {
-				width: 100%;
-			}
-			form input{
-				width: 90%;
-				overflow-x: auto;
-			}
-		</style>
-		<script src="/javascripts/jquery.js"></script>
-		<script src="/javascripts/plugins/autoresize.jquery.js"></script>
-		<script src="/javascripts/plugins/cookie.jquery.js"></script>
-		<script src="/javascripts/submit.js"></script>
 	</body>
 </html>

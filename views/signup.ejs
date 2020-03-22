@@ -8,13 +8,8 @@
 		<% include common/nav.ejs %>
 		<main>
 			<h1>Signup</h1>
-			<form action="/user/signup" method="post">
-				<div class=warming>
-					<div class="warming-msg">
-						<h3></h3>
-					</div>
-					<a class="icon" href="#" data-close=".warming"><img src="/images/svg/close.svg" alt=""></a>
-				</div>
+			<form action="/ignup" method="post">
+				<% include common/warming.ejs %>
 				<label for="username">username(email):</label>
 				<input id="username" type="email" name="username" required>
 				<label for="realname">realname:</label>
