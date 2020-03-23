@@ -40,6 +40,18 @@ app.use((req, res, next) => {
 	next();
 })
 
+// send isAuthticated to ejs
+/*
+app.use((req, res, next) => {
+	res.render = (page, argv) => {
+		res.render(page, {
+			...argv,
+			
+		})
+	}
+});
+*/
+
 app.use('/', require('./routes/index.js'));
 
 // catch 404 and forward to error handler

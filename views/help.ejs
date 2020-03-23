@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Let's Remin Daniel - How To Use</title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<style>
+			main img {
+				width: 40px;
+			}
+			p {
+				text-align: center;
+			}
+			table {
+				margin-left: auto;
+				margin-right: auto;
+			}
+			td {
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<% include common/nav.ejs %>
+		<main class=center>
+			<h1>說明</h1>
+			<p>上排按鍵分別是：</p>
+			<table>
+				<tr>
+					<td><p>純文字</p></td>
+					<td><a href="/raw"><img src="/images/svg/text.svg" alt="raw"></a></td>
+				</tr>
+				<tr>
+					<td><p>JSON</p></td>
+					<td><a href="/json"><img src="/images/svg/json.svg" alt="json"></a></td>
+				</tr>
+				<tr>
+					<td><p>提交（登入後顯示）</p></td>
+					<td><a href="/submit"><img src="/images/svg/submit.svg" alt="submit"></a></td>
+				</tr>
+				<tr>
+					<td><p>登入（登入後隱藏）</p></td>
+					<td><a href="/login"><img src="/images/svg/login.svg" alt="login"></a></td>
+				</tr>
+				<tr>
+					<td><p>註冊（登入後隱藏）</p></td>
+					<td><a href="/signup"><img src="/images/svg/signup.svg" alt="signup"></a></td>
+				</tr>
+				<tr>
+					<td><p>程式碼</p></td>
+					<td><a href="https://github.com/simba-fs/daniel" target="_blank"><img src="/images/svg/github.svg" alt="github"></a></td>
+				</tr>
+				<tr>
+					<td><p>幫助</p></td>
+					<td><a href="/help"><img src="/images/svg/question.svg" alt="help"></a></td>
+				</tr>
+			</table>
+			<p>先登入後才可以提交，提交不是在這裡寫，是到「<a href="/submit">提交</a>」頁面（要先登入）</p></br>
+			<p>登入時如果密碼錯誤不會跳訊息，會留在登入頁面，登入成功會回到首頁，我就懶沒做錯誤訊息</p></br>
+			<p>這套系統才剛出爐，這是我第一次實作登入，如果有 bug 歡迎發 <a href="https://github.com/simba-fs/daniel/issues" target="_blank">issue</a> 通知我謝謝</p></br>
+			<p>如果想一起完善這套系統歡迎加入開發的行列</p></br>
+			<p><a href="https://github.com/simba-fs/daniel" target="_blank">GitHub</a></p>
+		</main>
+	</body>
+</html>

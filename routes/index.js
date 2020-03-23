@@ -26,6 +26,10 @@ router.get('/raw', (req, res, next) => {
 	})
 })
 
+router.get('/help', (req, res, next) => {
+	res.render('help');
+});
+
 router.get('/secret', auth, (req, res, next) => {
 	res.send('<h1>Hello World</h1>');
 });

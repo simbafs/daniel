@@ -3,9 +3,13 @@
 	<ul>
 		<li><a href="/raw"><img src="/images/svg/text.svg" alt="Text"></a></li>
 		<li><a href="/json"><img src="/images/svg/json.svg" alt="JSON"></a></li>
-		<li><a href="/submit"><img src="/images/svg/submit.svg" alt="Submit"></a></li>
-		<li><a href="/login"><img src="/images/svg/login.svg" alt="Login"></a></li>
-		<li><a href="/signup"><img src="/images/svg/signup.svg" alt="Signup"></a></li>
+		<% if(locals.isAuthenticated){ %>
+			<li><a href="/submit"><img src="/images/svg/submit.svg" alt="Submit"></a></li>
+		<% }else{ %>
+			<li><a href="/login"><img src="/images/svg/login.svg" alt="Login"></a></li>
+			<li><a href="/signup"><img src="/images/svg/signup.svg" alt="Signup"></a></li>
+		<% } %>
 		<li><a href="https://github.com/simba-fs/daniel" target="_blank"><img src="/images/svg/github.svg" alt="GitHub"></a></li>
+		<li><a href="/help"><img src="/images/svg/question.svg" alt="help"></a></li>
 	</ul>
 </nav>
