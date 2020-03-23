@@ -5,7 +5,9 @@
 @import url(/stylesheets/nav.css);
 /* Import fonts */
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+/*
 @import url('/fonts/Auraka.ttf');
+*/
 
 :root {
 	--color: #33d;
