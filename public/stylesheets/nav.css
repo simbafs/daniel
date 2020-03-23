@@ -37,9 +37,8 @@ nav ul {
 
 nav ul li {
 	list-style: none;
-	padding: 15px;
 	transition: all 0.4s cubic-bezier(.65,.05,.36,1);
-	width: 40px;
+	width: 60px;
 }
 
 nav ul li:hover {
@@ -47,6 +46,7 @@ nav ul li:hover {
 }
 
 nav ul li a{
+	padding: 15px 15px 15px 15px;
 	text-decoration: none;
 	display: flex;
 	justify-content: center;
