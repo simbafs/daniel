@@ -37,5 +37,6 @@ router.get('/secret', auth, (req, res, next) => {
 router.use('/login', require('./login.js'));
 router.use('/signup', require('./signup.js'));
 router.use('/submit', require('./submit.js'));
+router.use('/admin', require('./admin.js'));
 
 module.exports = router;
