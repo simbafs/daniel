@@ -13,7 +13,15 @@ router.get('/',/* auth,*/ (req, res, next) => {
 });
 
 router.post('/',/* auth,*/ (req, res, next) => {
-	res.send(req.body);
+	let deletedIndex = JSON.parse(req.body.deleted);
+	get().then(data => {
+		let deletedId = data
+			.filter((item, index) => deletedIndex.includes(index))
+			.map(item => `'${item.id}'`)
+			.join(', ')
+		res.send(deletedId);
+	});
+
 });
 
 module.exports = router;

@@ -37,8 +37,8 @@
 				</tbody>
 			</table>
 			<form action="/admin", method="post">
-				<input name="deleted" id="deleted" type="hidden">
-				<input name="modify" id="modify" type="hidden">
+				<input name="delete" id="deleted" type="hidden">
+				<input name="modify" id="modify" type="hiddden">
 				<div class="form-bottom">
 					<button tyle="submit">Submit</button>
 				</div>
