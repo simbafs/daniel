@@ -92,28 +92,21 @@ async function load(data){
 }
 
 let get = () => DB.all(`SELECT * FROM Record`);
+let remove = id => DB.run(`DELETE FROM Record WHERE id IN (${id})`);
 
 /*
 setTimeout(async () => {
-	load(require('../db/record.js'));
-	load({
-		content: 'asdfasdfdasf',
-		author: 'simba'
-	});
-	console.log('record.js loaded');
-	get().then(console.log);
+//	load(require('../db/record.js'));
 }, 2000);
-*/
+//*/
 
-module.exports = (mode) => {
-	const handler = {
-		init: init,
-		login: login,
-		signup: signup,
-		DB: DB,
-		load: load,
-		get: get
-	}
-	return handler[mode] || (() => new Error('Error mode'));
+module.exports = {
+	init: init,
+	login: login,
+	signup: signup,
+	DB: DB,
+	load: load,
+	get: get,
+	remove: remove 
 }
 

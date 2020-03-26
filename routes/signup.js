@@ -1,9 +1,7 @@
 const router = require('express').Router();
-const sqlite = require('../setup/sqlite.js');
-const signup = sqlite('signup');
 let DB;
 setTimeout(() => {
-	DB = sqlite('DB');
+	DB = require('../setup/sqlite.js').DB;
 	console.log('router/user/signup.js: DB load');
 }, 1500);
 

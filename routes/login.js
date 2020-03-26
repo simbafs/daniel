@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const login = require('../setup/sqlite.js')('login');
-const register = require('../setup/sqlite.js')('login');
+const { login, register } = require('../setup/sqlite.js');
 const passport = require('passport');
 const auth = require('../setup/auth.js');
 

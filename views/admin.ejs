@@ -11,7 +11,7 @@
 			td {
 				padding: 10px;
 			}
-			.deleted {
+			.removed {
 				background: #d65;
 			}
 		</style>
@@ -24,20 +24,20 @@
 				<tr class="title">
 					<td class="content">content</td>
 					<td class="author">author</td>
-					<td class="delete">delete</td>
+					<td class="remove">remove</td>
 				</tr>
 				<tbody>
 					<% for(let i in data){ %>
 					<tr id="<%= i %>">
 							<td class="content"><%= data[i].content %></td>
 							<td class="author"><%= data[i].author %></td>
-							<td class="delete"><button class="delete">X</button></td>
+							<td class="remove"><button class="remove">X</button></td>
 						</tr>
 					<% } %>
 				</tbody>
 			</table>
 			<form action="/admin", method="post">
-				<input name="deleted" id="deleted" type="hidden">
+				<input name="removed" id="removed" type="hidden">
 				<input name="modify" id="modify" type="hidden">
 				<div class="form-bottom">
 					<button tyle="submit">Submit</button>

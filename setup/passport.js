@@ -1,10 +1,11 @@
 module.exports = (app, passport) => {
 	const session = require('express-session');
 	const LocalStrategy = require('passport-local').Strategy;
-	const login = require('./sqlite.js')('login');
+	const sqlite = require('./sqlite.js')
+	const load = sqlite.load;
 	let DB;
 	setTimeout(() => {
-		DB = require('./sqlite.js')('DB');
+		DB = require('./sqlite.js').DB;
 		console.log('setup/sqlite.js: DB load')
 	}, 1000);
 

@@ -1,29 +1,29 @@
 console.log('admin.js loaded');
 
-let $hidden = $('#deleted');
+let $hidden = $('#removed');
 
 $(document).ready(() => {
 	$hidden.val('');
 });
 
-$('button.delete').click(function(){
+$('button.remove').click(function(){
 	let $button = $(this);
 	let $target = $button.parent().parent();
-	let deleted = JSON.parse($hidden.val() || '[]');
+	let removed = JSON.parse($hidden.val() || '[]');
 	let id = parseInt($target.attr('id'));
 	
-	if(!Array.isArray(deleted)) deleted = [];
-	console.log('deleted', deleted);
+	if(!Array.isArray(removed)) removed = [];
+	console.log('removed', removed);
 
-	if($target.hasClass('deleted')){
-		// remove id in `deleted`
-		$target.removeClass('deleted');
-		deleted = deleted.filter(item => item !== id);
+	if($target.hasClass('removed')){
+		// remove id in `removed`
+		$target.removeClass('removed');
+		removed = removed.filter(item => item !== id);
 	}else{
-		// add id to `deleted`
-		$target.addClass('deleted');
-		deleted.push(id);
-		deleted.sort((a, b) => a > b);
+		// add id to `removed`
+		$target.addClass('removed');
+		removed.push(id);
+		removed.sort((a, b) => a > b);
 	}
-	$hidden.val(JSON.stringify(deleted));
+	$hidden.val(JSON.stringify(removed));
 });

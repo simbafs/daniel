@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // passport setup
 require('./setup/passport.js')(app, passport);
-require('./setup/sqlite.js')('init')();
+require('./setup/sqlite.js').init();
 
 
 // Use flash middleware: all requests will have a req.flash()

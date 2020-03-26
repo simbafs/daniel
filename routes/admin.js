@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const auth = require('../setup/auth.js');
-const sqlite = require('../setup/sqlite.js');
-const get = sqlite('get');
-const load = sqlite('load');
+const { get, load, remove } = require('../setup/sqlite.js');
 
 router.get('/',/* auth,*/ (req, res, next) => {
 	get().then(data => {
@@ -13,13 +11,14 @@ router.get('/',/* auth,*/ (req, res, next) => {
 });
 
 router.post('/',/* auth,*/ (req, res, next) => {
-	let deletedIndex = JSON.parse(req.body.deleted);
+	let removedIndex = JSON.parse(req.body.removed);
 	get().then(data => {
-		let deletedId = data
-			.filter((item, index) => deletedIndex.includes(index))
+		let removedId = data
+			.filter((item, index) => removedIndex.includes(index))
 			.map(item => `'${item.id}'`)
-			.join(', ')
-		res.send(deletedId);
+			.join(', ');
+		remove(removedId);
+		res.send(removedId);
 	});
 
 });
