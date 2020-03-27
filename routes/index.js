@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const auth = require('../setup/auth.js');
+const { auth } = require('../setup/auth.js');
 const { get } = require('../setup/sqlite.js');
 
 router.get('/', (req, res, next) => {

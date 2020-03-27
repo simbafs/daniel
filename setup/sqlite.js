@@ -93,10 +93,11 @@ async function load(data){
 
 let get = () => DB.all(`SELECT * FROM Record`);
 let remove = id => DB.run(`DELETE FROM Record WHERE id IN (${id})`);
+let exportDB = () => DB
 
 /*
 setTimeout(async () => {
-//	load(require('../db/record.js'));
+	load(require('../db/record.js'));
 }, 2000);
 //*/
 
@@ -104,7 +105,7 @@ module.exports = {
 	init: init,
 	login: login,
 	signup: signup,
-	DB: DB,
+	DB: exportDB,
 	load: load,
 	get: get,
 	remove: remove 

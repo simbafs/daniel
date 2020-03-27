@@ -1,6 +1,9 @@
 <nav>
 	<a class="nav-brand" href="/"><img src="/images/daniel.jpg" alt="Daniel"></a>
 	<ul>
+		<% if(isAdmin){ %>
+			<li><a href="/admin"><img src="/images/svg/admin.svg" alt="Admin"></a></li>
+		<% } %>
 		<li><a href="/raw"><img src="/images/svg/text.svg" alt="Text"></a></li>
 		<li><a href="/json"><img src="/images/svg/json.svg" alt="JSON"></a></li>
 		<% if(locals.isAuthenticated){ %>

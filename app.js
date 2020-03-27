@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const passport = require('passport');
 const flash = require('connect-flash');
+const admin = require('./db/admin.json');
 require('dotenv').config();
 
 const app = express();
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
 	res.locals.user = req.user;
 	// check if already authenticated
 	res.locals.isAuthenticated = req.isAuthenticated();
+	res.locals.isAdmin = !!(req.user && admin.includes(req.user.id));
 	if(res.locals.isAuthenticated){
 		res.cookie('admin', 'true');
 	}else{
@@ -39,18 +41,6 @@ app.use((req, res, next) => {
 	}
 	next();
 })
-
-// send isAuthticated to ejs
-/*
-app.use((req, res, next) => {
-	res.render = (page, argv) => {
-		res.render(page, {
-			...argv,
-			
-		})
-	}
-});
-*/
 
 app.use('/', require('./routes/index.js'));
 

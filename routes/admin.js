@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const auth = require('../setup/auth.js');
+const { auth, admin } = require('../setup/auth.js');
 const { get, load, remove } = require('../setup/sqlite.js');
 
-router.get('/',/* auth,*/ (req, res, next) => {
+router.get('/', auth, admin, (req, res, next) => {
 	get().then(data => {
 		res.render('admin', {
 			data: data
@@ -10,7 +10,7 @@ router.get('/',/* auth,*/ (req, res, next) => {
 	});
 });
 
-router.post('/',/* auth,*/ (req, res, next) => {
+router.post('/', auth, admin, (req, res, next) => {
 	let removedIndex = JSON.parse(req.body.removed);
 	get().then(data => {
 		let removedId = data
@@ -18,7 +18,7 @@ router.post('/',/* auth,*/ (req, res, next) => {
 			.map(item => `'${item.id}'`)
 			.join(', ');
 		remove(removedId);
-		res.send(removedId);
+		res.redirect('/admin');
 	});
 
 });

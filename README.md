@@ -17,11 +17,18 @@ DB_SECRET=YOU_SHOULD_CHANGE_THIS
 BCRYPT_SALT_ROUNDS=10
 ```
 
+# admin
+新增 `db/admin.json`
+內容是一個陣列
+每個元素是管理員的 id （字串）
+登入後進入 [/admin]() 
+
 # TODO
 1. 驗證電子信箱
-2. 管理員功能
+2. 管理員功能 (完成部份)
 3. 大眾審核
 4. 訂閱
+5. 整理 app.js
 
 # Contribute
 歡迎一起來改善這個系統 <3

@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { signup } = require('../setup/sqlite.js');
 let DB;
 setTimeout(() => {
 	DB = require('../setup/sqlite.js').DB;
