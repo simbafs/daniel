@@ -21,7 +21,7 @@ BCRYPT_SALT_ROUNDS=10
 新增 `db/admin.json`
 內容是一個陣列
 每個元素是管理員的 id （字串）
-登入後進入 [/admin]() 
+登入後進入 [/admin](.) 
 
 # TODO
 1. 驗證電子信箱
