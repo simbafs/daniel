@@ -10,6 +10,13 @@
 		<main>
 		<h1>Submit</h1>
 			<form action="/submit" method="post">
+				<pre>
+<!--			-->	一行一個，換行分隔不同提醒事項，不用加頓號<pre class="code">
+<!--				-->	注意不要在樓梯扭到腳
+<!--				-->	不要撞電線桿和樹
+<!--				-->	不要喝水嗆到
+<!--				-->	官解不要爛掉</pre>
+				</pre>
 				<% include common/warming.ejs %>
 				<label for="content">content</label>
 				<textarea id="content" name="content" cols="30" rows="10"></textarea>

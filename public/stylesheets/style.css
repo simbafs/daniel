@@ -45,3 +45,8 @@ h1, h2, h3, h4, h5, h6 {
 .kbd {
 	font-family: 'Auraka點陣宋', 'Roboto Mono', monospace;
 }
+
+.code {
+	border: solid gray;
+	border-radius: 10px;
+}
