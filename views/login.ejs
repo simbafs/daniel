@@ -11,13 +11,13 @@
 			<form action="/login" method="post">
 				<% include common/warming.ejs %>
 				<label for="username">username: </label>
-				<input type="text" name="username" id="username" required>
+				<input type="text" name="username" id="username" tabindex="1" required>
 				<br>
 				<label for="password">password: </label>
-				<input type="password" name="password" id="password" required>
+				<input type="password" name="password" id="password" tabindex="2" required>
 				<div class="form-bottom">
-					<button id="login" type="submit">Login</button>
-					<button id="signup" type="button">Signup</button>
+					<button id="login" type="submit" tabindex="3">Login</button>
+					<button id="signup" type="button" tabindex="4">Signup</button>
 				
 				</div>
 			</form>

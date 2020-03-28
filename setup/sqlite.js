@@ -91,8 +91,8 @@ async function load(data){
 	stat.finalize();
 }
 
-let get = () => DB.all(`SELECT * FROM Record`);
-let remove = id => DB.run(`DELETE FROM Record WHERE id IN (${id})`);
+let get = (table = 'Record') => DB.all(`SELECT * FROM ${table}`);
+let remove = (id, table = 'Record') => DB.run(`DELETE FROM ${table} WHERE id IN (${id})`);
 let exportDB = () => DB
 
 /*

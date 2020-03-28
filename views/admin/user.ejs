@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<% include ../common/head.ejs %>
+		<title>Let's Remin Daniel - User</title>
+		<style>
+			table {
+				margin-left: auto;
+				margin-right: auto;
+			}
+			td {
+				padding: 10px;
+			}
+			.removed {
+				background: #d65;
+			}
+		</style>
+	</head>
+	<body>
+		<% include ../common/nav.ejs %>
+		<main>
+			<h1>User</h1>
+			<table>
+				<tr class="title">
+					<td class="username">User</td>
+					<td class="realname">Realname</td>
+					<td class="id">ID</td>
+				</tr>
+				<tbody>
+					<% for(let i in data){ %>
+					<tr id="<%= i %>">
+							<td class="username"><%= data[i].username %></td>
+							<td class="realname"><%= data[i].realname %></td>
+							<td class="id"><%= data[i].id %></td>
+							<td class="remove"><button class="remove">X</button></td>
+						</tr>
+					<% } %>
+				</tbody>
+			</table>
+			<form action="/admin/user", method="post">
+				<input name="removed" id="removed" type="hidden">
+				<input name="modify" id="modify" type="hidden">
+				<div class="form-bottom">
+					<button tyle="submit">Submit</button>
+				</div>
+			</form>
+
+		</main>
+		<script src="/javascripts/jquery.js"></script>
+		<script src="/javascripts/admin.js"></script>
+	</body>
+</html>
