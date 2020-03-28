@@ -2,7 +2,7 @@
 大家幫忙提醒王品庠
 
 註冊帳號之後可以幫忙一起提醒王品庠
-![1.png](./imgs/1.png)
+![1.png](./public/images/meta.png)
 ---
 
 # NOTICE
