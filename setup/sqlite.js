@@ -49,7 +49,10 @@ function login(username, password){
 }
 
 function signup(username, password, realname){
-	return DB.all(`select count(username) from User where username = '${username}'`)
+	username = username.toString();
+	password = password.toString();
+	realname = realname.toString();
+	return DB.all(`SELECT count(username) FROM User WHERE username = '${username}'`)
 		.then((data) => {
 			if(data[0]['count(username)'] === 0) return bcrypt.hash(password, parseInt(process.env.BCRYPT_SALT_ROUNDS));
 		})
@@ -65,7 +68,10 @@ function signup(username, password, realname){
 				id: hash
 			};
 		})
-		.catch(console.error);
+		.catch((error) => {
+			console.error('error: ', error);
+			return new Error('Error when signup');
+		});
 }
 
 async function load(data){
@@ -75,15 +81,15 @@ async function load(data){
 		if(typeof i === 'string'){
 			stat.run(
 				uuid(),
-				i,
+				i.toString(),
 				'unknown',
 				(new Date()).toISOString()
 			);
 		}else{
 			stat.run(
 				uuid(),
-				i.content,
-				i.author,
+				i.content.toString(),
+				i.author.toString(),
 				(new Date()).toISOString()
 			);
 		}
@@ -91,9 +97,9 @@ async function load(data){
 	stat.finalize();
 }
 
-let get = (table = 'Record') => DB.all(`SELECT * FROM ${table}`);
-let remove = (id, table = 'Record') => DB.run(`DELETE FROM ${table} WHERE id IN (${id})`);
-let exportDB = () => DB
+let get = (table = 'Record') => DB.all(`SELECT * FROM ${table.toString()}`);
+let remove = (id, table = 'Record') => DB.run(`DELETE FROM ${table.toString()} WHERE id IN (${id.toString()})`);
+let exportDB = () => DB;
 
 /*
 setTimeout(async () => {
