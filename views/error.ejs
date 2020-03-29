@@ -1,3 +1,15 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<% include common/head.ejs %>
+		<title>Let's Remin Daniel - Login</title>
+	</head>
+	<body>
+		<% include common/nav.ejs %>
+		<main>
+			<h1><%= message %></h1>
+			<h2><%= error.status %></h2>
+			<pre><%= error.stack %></pre>
+		</main>
+	</body>
+</html>

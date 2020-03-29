@@ -34,6 +34,13 @@ router.get('/secret', auth, (req, res, next) => {
 	res.send('<h1>Hello World</h1>');
 });
 
+router.get('/error', (req, res, next) => {
+	res.render('error', {
+		message: 'Test error page',
+		error: new Error('Test error page')
+	});	
+});
+
 router.use('/login', require('./login.js'));
 router.use('/signup', require('./signup.js'));
 router.use('/submit', require('./submit.js'));

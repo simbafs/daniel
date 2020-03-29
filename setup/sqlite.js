@@ -54,6 +54,14 @@ function login(username, password){
 }
 
 function signup(username, password, realname){
+	let error = [];
+	if(!username) error.push('username');
+	if(!password) error.push('password');
+	if(!realname) error.push('realname');
+	if(error.length > 0) return new Promise((res, rej) => {
+		rej(`${error.join(', ')} undefined`);
+	});
+
 	return DB.all(`SELECT count(username) FROM User WHERE username = ?`, username)
 		.then((data) => {
 			if(data[0]['count(username)'] === 0) return bcrypt.hash(password, parseInt(process.env.BCRYPT_SALT_ROUNDS));
@@ -96,24 +104,28 @@ async function load(data){
 	stat.finalize();
 }
 
-let get = (table = 'Record') => {
-	if(!(['Record', 'User'].includes(table))) return error('tabel not found');
+function get(table = 'Record'){
+	if(!(['Record', 'User'].includes(table))) return new Promise((res, rej) => {
+		rej('Error table');
+	});
 	return DB.all(`SELECT * FROM ${table}`)
 		.then(data => data)
 }
-let remove = (id, table = 'Record') => { 
-	if(!(['Record', 'User'].includes(table))) return error('tabel not found');
+function remove(id, table = 'Record'){ 
+	if(!(['Record', 'User'].includes(table))) return new Promise((res, rej) => {
+		rej('Error table');
+	});
 	return DB.run(`DELETE FROM ${table} WHERE id IN ( ? )`, id)
 		.then(data => data)
+		.catch(error);
 }
 let exportDB = () => DB;
 
-//*
+/*
 setTimeout(async () => {
-//	load(require('../db/record.js'));
-	g = get('Usera');
-	console.log('g', g);
-//	g.then(console.log).catch(console.error);
+//	require('../db/record.js')
+//	remove('asdf','ssvs').then(console.log).catch(console.error);
+	signup('kenny.faas@gmail.com', 'simbass').then(console.error).catch(console.error);
 }, 2000);
 //*/
 
