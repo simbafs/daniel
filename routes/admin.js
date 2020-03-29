@@ -9,7 +9,7 @@ router.get('/record', auth, admin, (req, res, next) => {
 		res.render('admin/record', {
 			data: data
 		});
-	});
+	}).catch(console.error);
 });
 
 router.post('/record', auth, admin, (req, res, next) => {
@@ -21,7 +21,7 @@ router.post('/record', auth, admin, (req, res, next) => {
 			.join(', ');
 		remove(removedId);
 		res.redirect('/admin/record');
-	});
+	}).catch(console.error);
 
 });
 
@@ -41,7 +41,7 @@ router.post('/user', auth, admin, (req, res, next) => {
 			.join(', ');
 		remove(removedId, 'User');
 		res.redirect('/admin/user');
-	});
+	}).catch(console.error);
 
 });
 

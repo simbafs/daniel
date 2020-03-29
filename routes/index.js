@@ -9,21 +9,21 @@ router.get('/', (req, res, next) => {
 			data: data.join('、\n'),
 			lines: data.length
 		});
-	})
+	}).catch(console.error);
 });
 
 router.get('/json', (req, res, next) => {
 	get().then(raw => {
 		let data = raw.map(item => item.content);
 		res.send(data);
-	})
+	}).catch(console.error);
 })
 
 router.get('/raw', (req, res, next) => {
 	get().then(raw => {
 		let data = raw.map(item => item.content);
 		res.send(data.join('、<br>'));
-	})
+	}).catch(console.error);
 })
 
 router.get('/help', (req, res, next) => {

@@ -24,7 +24,7 @@ router.post('/', async (req, res, next) => {
 		req.body.username.toString(),
 		req.body.password.toString(),
 		req.body.realname.toString()
-	);
+	).catch(console.error);
 	console.log(user);
 	if(user.error) return res.send(user);
 	else return res.send({
