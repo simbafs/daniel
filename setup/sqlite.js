@@ -111,13 +111,16 @@ function get(table = 'Record'){
 	return DB.all(`SELECT * FROM ${table}`)
 		.then(data => data)
 }
-function remove(id, table = 'Record'){ 
+async function remove(id, table = 'Record'){ 
 	if(!(['Record', 'User'].includes(table))) return new Promise((res, rej) => {
 		rej('Error table');
 	});
-	return DB.run(`DELETE FROM ${table} WHERE id IN ( ? )`, id)
-		.then(data => data)
-		.catch(error);
+	let stm = await DB.prepare(`DELETE FROM ${table} WHERE id=?`);
+	id.forEach(async (item) => await stm.run(item));
+	await stm.finalize();
+	return new Promise((res, rej) => {
+		res(id);
+	});
 }
 let exportDB = () => DB;
 

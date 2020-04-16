@@ -17,17 +17,16 @@ router.post('/record', auth, admin, (req, res, next) => {
 	get().then(data => {
 		let removedId = data
 			.filter((item, index) => removedIndex.includes(index))
-			.map(item => `'${item.id}'`)
-			.join(', ');
-		remove(removedId);
-		res.redirect('/admin/record');
+			.map(item => item.id)
+		remove(removedId).then(() => {
+			res.redirect('/admin/record');
+		})
 	}).catch(console.error);
 
 });
 
 router.get('/user', auth, admin, (req, res, next) => {
 	get('User').then(data => {
-	//	res.send(data);
 		res.render('admin/user', { data: data });
 	});
 });
@@ -37,10 +36,10 @@ router.post('/user', auth, admin, (req, res, next) => {
 	get('User').then(data => {
 		let removedId = data
 			.filter((item, index) => removedUID.includes(index))
-			.map(item => `'${item.id}'`)
-			.join(', ');
-		remove(removedId, 'User');
-		res.redirect('/admin/user');
+			.map(item => item.id)
+		remove(removedId, 'User').then(() => {
+			res.redirect('/admin/user');
+		});
 	}).catch(console.error);
 
 });
