@@ -19,7 +19,7 @@ function init(){
 				username TEXT,
 				password TEXT,
 				realname TEXT,
-				id STRING 
+				id STRING
 			)`)
 			db.run(`CREATE TABLE IF NOT EXISTS Record (
 				id INTEGER,
@@ -111,7 +111,7 @@ function get(table = 'Record'){
 	return DB.all(`SELECT * FROM ${table}`)
 		.then(data => data)
 }
-async function remove(id, table = 'Record'){ 
+async function remove(id, table = 'Record'){
 	if(!(['Record', 'User'].includes(table))) return new Promise((res, rej) => {
 		rej('Error table');
 	});
@@ -126,8 +126,8 @@ let exportDB = () => DB;
 
 /*
 setTimeout(async () => {
-//	require('../db/record.js')
-//	remove('asdf','ssvs').then(console.log).catch(console.error);
+	//	require('../db/record.js')
+	//	remove('asdf','ssvs').then(console.log).catch(console.error);
 	signup('kenny.faas@gmail.com', 'simbass').then(console.error).catch(console.error);
 }, 2000);
 //*/
@@ -139,6 +139,6 @@ module.exports = {
 	DB: exportDB,
 	load: load,
 	get: get,
-	remove: remove 
+	remove: remove
 }
 
