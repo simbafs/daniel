@@ -15,17 +15,17 @@
     "dotenv": "^8.2.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
-    "express-session": "^1.17.0",
+    "express-session": "^1.17.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "passport": "^0.4.1",
-    "passport-github2": "^0.1.11",
+    "passport-github2": "^0.1.12",
     "passport-local": "^1.0.0",
     "prompt-confirm": "^2.0.4",
-    "sqlite-async": "^1.0.12",
-    "uuid": "^7.0.2"
+    "sqlite-async": "^1.1.0",
+    "uuid": "^7.0.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.4"
   }
 }
