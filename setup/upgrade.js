@@ -11,7 +11,10 @@ switch(package.version){
 				if(result) return sqlite.open(process.env.DB_PATH)
 				else return new Promise((res, rej) => rej('cancel'));
 			})
-			.then(db => db.run('ALTER TABLE Record ADD COLUMN comment TEXT'))
+			.then(db => {
+				db.run(`ALTER TABLE Record ADD COLUMN comment TEXT;`);
+				db.run(`UPDATE Record SET comment='' WHERE comment IS NULL;`);
+			})
 			.catch(console.error);
 		break;
 	default:
