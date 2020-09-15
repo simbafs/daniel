@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { load } = require('../setup/sqlite.js');
 const { auth } = require('../setup/auth.js');
 
-router.get('/', /*auth,*/ (req, res, next) => {
+router.get('/', auth, (req, res, next) => {
 	res.render('submit');
 });
 
@@ -23,6 +23,10 @@ router.post('/', (req, res, next) => {
 				author: author
 			};
 		})
+		.filter(item => {
+			console.log(item);
+			return item.content !== ''
+		});
 	return load(data)
 		.then(() => res.send(data))
 		.catch(e => {
