@@ -22,14 +22,16 @@
 			<h1>Admin</h1>
 			<table>
 				<tr class="title">
-					<td class="content">content</td>
-					<td class="author">author</td>
-					<td class="remove">remove</td>
+					<td class="Content">content</td>
+					<td class="Comment">content</td>
+					<td class="Author">author</td>
+					<td class="Remove">remove</td>
 				</tr>
 				<tbody>
 					<% for(let i in data){ %>
 					<tr id="<%= i %>">
 							<td class="content"><%= data[i].content %></td>
+							<td class="comment"><%= data[i].comment %></td>
 							<td class="author"><%= data[i].author %></td>
 							<td class="remove"><button class="remove">X</button></td>
 						</tr>

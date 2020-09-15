@@ -4,9 +4,9 @@
 		<% include common/head.ejs %>
 		<title>Let's Remin Daniel</title>
 		<style>
-			textarea {
-				resize: none;
-			}
+textarea {
+	resize: none;
+}
 		</style>
 	</head>
 	<body>
@@ -15,7 +15,25 @@
 			<h1 class="title">Let's Remind Daniel</h1>
 			<h2 class="subtitle kbd">Welcome to Let's Remind Daniel</h2>
 			<h2><a href="/help">不會用按我</a></h2>
+			<div class="center">
+				<input type="checkbox" id="comment" checked=true>
+				<label for="comment">Comment</label>
+			</div>
 			<textarea id="content" cols="30" rows="<%= lines+10 %>"><%= data %></textarea>
 		</main>
+		<script>
+			var data = `<%= data %>`.split('、\n');
+			var textarea = document.getElementById('content');
+			document.getElementById('comment').addEventListener('change', e => {
+				var checked = e.target.checked;
+
+				if(checked){
+					textarea.textContent = data.join('、\n');
+				}else{
+					textarea.textContent = data.map(i => i.split(' //')[0]).join('、\n');
+				}
+			})
+
+		</script>
 	</body>
 </html>
