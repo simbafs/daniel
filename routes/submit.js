@@ -10,8 +10,7 @@ router.post('/', (req, res, next) => {
 	// if(!req.isAuthenticated()) return res.send({
 	//     error: 'You have to login'
 	// });
-	// let author = req.user.username;
-	let author = 'simba.fs@gmail.com';
+	let author = req.user.username;
 	let data = req.body.content
 		.split('\n')
 		.filter(item => item.length > 0)

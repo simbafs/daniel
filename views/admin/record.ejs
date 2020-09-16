@@ -14,6 +14,10 @@
 			.removed {
 				background: #d65;
 			}
+
+			.id {
+				display: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -31,15 +35,20 @@
 					<% for(let i in data){ %>
 					<tr id="<%= i %>">
 							<td class="content"><%= data[i].content %></td>
-							<td class="comment"><%= data[i].comment %></td>
+							<td class="comment">
+								<button class="edit-comment">
+									<%= data[i].comment || 'click to edit' %>
+								</button>
+							</td>
 							<td class="author"><%= data[i].author %></td>
 							<td class="remove"><button class="remove">X</button></td>
+							<td class="id"><%= data[i].id %></td>
 						</tr>
 					<% } %>
 				</tbody>
 			</table>
 			<form action="/admin/record", method="post">
-				<input name="removed" id="removed" type="hidden">
+				<input name="data" id="data" type="hidden">
 				<input name="modify" id="modify" type="hidden">
 				<div class="form-bottom">
 					<button tyle="submit">Submit</button>

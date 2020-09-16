@@ -8,7 +8,9 @@
 		<% include common/nav.ejs %>
 		<main>
 			<h1><a href="/admin/record">Record</a></h1>
-			<h1><a href="/admin/User">User</a></h1>
+			<% if(isAdmin){ %>
+				<h1><a href="/admin/User">User</a></h1>
+			<% } %>
 		</main>
 	</body>
 </html>

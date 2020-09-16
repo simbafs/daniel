@@ -1,7 +1,7 @@
 <nav>
 	<a class="nav-brand" href="/"><img src="/images/daniel.jpg" alt="Daniel"></a>
 	<ul>
-		<% if(isAdmin){ %>
+		<% if(locals.isAuthenticated){ %>
 			<li><a href="/admin"><img src="/images/svg/admin.svg" alt="Admin"></a></li>
 		<% } %>
 		<li><a href="/raw"><img src="/images/svg/text.svg" alt="Text"></a></li>
