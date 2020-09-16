@@ -36,7 +36,7 @@ $('.edit-comment').click(function(e){
 	let $id = $target.children().eq(4)
 	let data = JSON.parse($hidden.val());
 
-	let comment = prompt(`Edit '${$content.text()}', leave blank to delete`, $btn.text().trim() === 'click to edit' ? '' : $btn.text()).trim();
+	let comment = prompt(`Edit '${$content.text().trim()}', leave blank to delete`, $btn.text().trim() === 'click to edit' ? '' : $btn.text()).trim();
 	if(comment === '') $btn.text('click to edit');
 	else $btn.text(comment);
 
