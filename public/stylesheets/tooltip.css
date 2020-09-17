@@ -1,0 +1,11 @@
+li::after{
+	content: attr(data-tooltip);
+	width: 10rem;
+	display: inline-block;
+	transform: translateY(-100px);
+	transition: all 1s ease;
+}
+
+li:hover::after{
+	transform: translateY(0px);
+}
