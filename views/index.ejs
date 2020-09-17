@@ -16,8 +16,13 @@ textarea {
 			<h2 class="subtitle kbd">Welcome to Let's Remind Daniel</h2>
 			<h2><a href="/help">不會用按我</a></h2>
 			<div class="center">
-				<input type="checkbox" id="comment" checked=true>
-				<label for="comment">Comment</label>
+				<label for="comment">
+					<input class="switch-input" type="checkbox" id="comment" checked=true>
+					<span class="switch">
+						<span></span>
+					</span>
+					<span class="text">註解</span>
+				</label>
 			</div>
 			<textarea id="content" cols="30" rows="<%= lines+10 %>"><%= data %></textarea>
 		</main>

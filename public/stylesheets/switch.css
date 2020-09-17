@@ -1,0 +1,25 @@
+.switch-input {
+	display: none;
+}
+
+.switch {
+	display:inline-block;
+	width: 40px;
+	height: 20px;
+	border-radius:100px;
+	background-color: #ccc;
+}
+.switch > span {
+	display:inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius:50%;
+	background-color: #84ca8c;
+	transform: translateX(-10px);
+	transition: all 0.2s ease;
+}
+
+input:checked + .switch > span {
+	transform: translateX(10px);
+	background-color: #ca8484;
+}
