@@ -57,6 +57,10 @@ nav ul li a img {
 	filter: invert(80%);
 }
 
+@media (max-width: 500px) {
+
+}
+
 /* main */
 main {
 

@@ -2,7 +2,7 @@ li::after{
 	content: attr(data-tooltip);
 	width: 10rem;
 	display: inline-block;
-	transform: translateY(-100px);
+	transform: translateY(-400px);
 	transition: all 1s ease;
 }
 
