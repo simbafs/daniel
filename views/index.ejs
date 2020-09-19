@@ -17,7 +17,7 @@ textarea {
 			<h2><a href="/help">不會用按我</a></h2>
 			<div class="center">
 				<label for="comment">
-					<input class="switch-input" type="checkbox" id="comment" checked=true>
+					<input class="switch-input" type="checkbox" id="comment" checked=false>
 					<span class="switch">
 						<span></span>
 					</span>
@@ -32,7 +32,7 @@ textarea {
 			document.getElementById('comment').addEventListener('change', e => {
 				var checked = e.target.checked;
 
-				if(checked){
+				if(!checked){
 					textarea.textContent = data.join('、\n');
 				}else{
 					textarea.textContent = data.map(i => i.split(' //')[0]).join('、\n');
