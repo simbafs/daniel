@@ -33,9 +33,9 @@ textarea {
 				var checked = e.target.checked;
 
 				if(!checked){
-					textarea.textContent = data.join('、\n');
-				}else{
 					textarea.textContent = data.map(i => i.split(' //')[0]).join('、\n');
+				}else{
+					textarea.textContent = data.join('、\n');
 				}
 			})
 
