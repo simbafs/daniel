@@ -4,7 +4,7 @@ const { get } = require('../setup/sqlite.js');
 
 router.get('/', (req, res, next) => {
 	get().then(raw => {
-		let data = raw.map(item => `${item.content}${item.comment !== '' ? ' //' : ''}${item.comment}`);
+		let data = raw.map(item => `${item.content}${item.comment ? ' //' : ''}${item.comment || ''}`);
 		res.render('index', {
 			data: data.join('、\n'),
 			lines: data.length

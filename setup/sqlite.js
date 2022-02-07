@@ -82,7 +82,7 @@ function signup(username, password, realname){
 }
 
 async function load(data){
-	const stat = await DB.prepare(`INSERT INTO Record VALUES (?, ?, ?, ?, ?)`);
+	const stat = await DB.prepare(`INSERT INTO Record VALUES (?, ?, ?, ?)`);
 	if(!Array.isArray(data)) data = [data];
 	for(let i of data){
 		if(typeof i === 'string'){
@@ -90,16 +90,16 @@ async function load(data){
 				uuid(),
 				i.toString(),
 				'unknown',
-				(new Date()).toISOString(),
-				''
+				(new Date()).toISOString()//,
+				// ''
 			);
 		}else{
 			stat.run(
 				uuid(),
 				i.content.toString(),
 				i.author.toString(),
-				(new Date()).toISOString(),
-				i.comment.toString()
+				(new Date()).toISOString()//,
+				// i.comment.toString()
 			);
 		}
 	}
